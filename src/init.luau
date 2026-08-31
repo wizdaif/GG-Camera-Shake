@@ -7,14 +7,6 @@
 local RunService = game:GetService("RunService")
 local Camera = workspace.CurrentCamera :: Camera
 
--- Roblox replaces the camera during client startup, so a copy of this module
--- required early would otherwise keep shaking a destroyed camera. Track
--- replacements instead of capturing once.
-workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
-	if workspace.CurrentCamera then
-		Camera = workspace.CurrentCamera
-	end
-end)
 
 local Displacement = require(script.Displacement)
 local ICameraShake = require(script.ICameraShake)
